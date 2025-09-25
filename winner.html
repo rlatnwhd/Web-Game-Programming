@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>우승자 발표</title>
+  <link rel="stylesheet" href="css/winner.css">
+</head>
+<body>
+  <div class="winner-container">
+    <div class="winner-title">우승자</div>
+    <div class="winner-name" id="winner-name"></div>
+    <div class="winner-buttons">
+      <button id="retry">다시하기</button>
+      <button id="end">끝내기</button>
+    </div>
+  </div>
+  <script>
+    // URL에서 우승자 이름 추출
+    const params = new URLSearchParams(window.location.search);
+    const winner = params.get('winner') || '???';
+    document.getElementById('winner-name').textContent = winner;
+    // 다시하기: 게임 페이지로 이동
+    document.getElementById('retry').onclick = () => {
+      location.href = 'word-relay.html';
+    };
+    // 끝내기: 창 닫기
+    document.getElementById('end').onclick = () => {
+      window.close();
+    };
+  </script>
+</body>
+</html>
